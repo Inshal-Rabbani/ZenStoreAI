@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zen | Products</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="/Pictures/logo.jpg" type="img/svg">
+    <link rel="stylesheet" href="/1.Header-Footer/style.css">
+    <script src="/Chat-Bot/bot.js"></script>
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    background: #3886e6;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+section {
+    padding: 50px;
+    text-align: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+h2 {
+    background-color: white;
+    color: #140e5e;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.2em;
+    text-align: center;
+    padding: 30px 30px;
+}
+
+.heading {
+    margin-top: 70px;
+}
+
+.product-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.top-sales {
+    display: flex;          
+    gap: 20px;            
+    justify-content: center; 
+    flex-wrap: wrap;    
+}
+
+.product {
+    background: white;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    max-width: 250px;
+    flex: 1 1 250px; /* Allow flexible sizing */
+}
+
+.product img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+.product:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    background: #222;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+button:hover {
+    background: #ff0055;
+    transform: translateY(-2px);
+}
+
+.product .price {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #5c5c5c;
+    margin-top: 10px;
+    margin-top: 10px;
+}
+
+/* Category Bar Container */
+
+.category-bar {
+    background-color: white;
+    padding: 25px 10px;
+    border-radius: 30px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 60%;
+    max-width: 900px;
+}
+
+.category-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.category {
+    cursor: pointer;
+    padding: 12px 25px;
+    background-color: #f2f2f2;
+    border-radius: 25px;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 10px;
+}
+
+.category:hover {
+    background-color: #3886e6;
+    color: white;
+    transform: scale(1.05);
+}
+
+.category.active {
+    background-color: #3886e6;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Discount Banner  */
+.discount-banner {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(90deg, #007bff, #00aaff); /* Sky Blue Gradient */
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 12px 0;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    z-index: 1000;
+}
+
+/* Scrolling Text */
+.discount-content {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: smoothScroll 12s linear infinite;
+}
+
+/* Scrolling Animation */
+@keyframes smoothScroll {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
+
+/* Shop Now Button */
+.cta-btn {
+    background: white;
+    color: #007bff;
+    padding: 6px 14px;
+    margin-left: 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 2px 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Button Hover Effect */
+.cta-btn:hover {
+    background: #f1f1f1;
+    color: #0056b3;
+}
+
+/* Icon Styling */
+.icon {
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+/* Stop Scrolling on Hover */
+.discount-banner:hover .discount-content {
+    animation-play-state: paused;
+}
+</style>
+</head>
+<body>
+
+ <!-- Header -->
+ <header class="transparent-header">
+    <div class="header-container">
+        <a href="01.home.html"> 
+        <div class="hlogo">
+        <img src="/Pictures/logo.jpg" type="img/svg" alt="Company Logo">
+        </div>
+        <p id="pp">Zen Store</p></a>  
+        <div class="nav-links">
+        <a href="/01.home.html">Home</a>
+        <div class="product-dropdown">
+            <a href="#">Product</a>
+            <ul class="product-menu">
+                <li><a href="/02.men.html">Men</a></li>
+                <li><a href="/02.women.html">Women</a></li>
+                <li><a href="/02.sports.html">Sports</a></li>
+            </ul>
+        </div>
+        <a href="/03.cart.html">Cart</a>
+        </div>
+        <div class="navsym">
+            
+            <div class="profile-dropdown">
+                <a href="/08.profile.html"><i class="fas fa-user"></i></a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Women Section -->
+<h2 class="heading">Women Collection</h2>
+
+<!-- Discount Banner -->
+
+<div class="discount-banner">
+    <div class="discount-content">
+        <span class="icon">⚡</span> LIMITED-TIME OFFER! Get <strong>30% OFF</strong> on all products, Shop now and save big! 🛍️  
+        <a href="02.men.html" class="cta-btn">Shop Now →</a>
+    </div>
+</div>
+
+<!-- Category Buttons -->
+<div class="category-bar"><div class="category-container" id="categoryContainer"></div></div>
+
+<section id="products" class="product-grid"></section>
+
+
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryQuery = urlParams.get("category");
+
+    function activateCategory(categoryName) {
+        document.querySelectorAll(".category").forEach(categoryElement => {
+            if (categoryElement.textContent.trim() === categoryName) {
+                categoryElement.click(); // Simulate clicking the category
+            }
+        });
+    }
+
+    if (categoryQuery) {
+        setTimeout(() => {
+            activateCategory(categoryQuery);
+        }, 300); // Short delay to ensure categories load before clicking
+    }
+});
+   const categories = {
+    "Fancy Shoes": [
+        { name: "Glamorous Heels", img: "/1.Products-htmls/All Products/Women/Fancy Shoes/01.png", price: "PKR 12600" },
+        { name: "Sparkly Stilettos", img: "/1.Products-htmls/All Products/Women/Fancy Shoes/02.png", price: "PKR 14000" },
+        { name: "Chic Platform Heels", img: "/1.Products-htmls/All Products/Women/Fancy Shoes/03.png", price: "PKR 15400" },
+        { name: "Elegant Slingbacks", img: "/1.Products-htmls/All Products/Women/Fancy Shoes/04.png", price: "PKR 16800" },
+        { name: "Classic Pumps", img: "/1.Products-htmls/All Products/Women/Fancy Shoes/05.png", price: "PKR 18200" },
+        { name: "Luxe Peep-Toe Shoes", img: "/1.Products-htmls/All Products/Women/Fancy Shoes/06.png", price: "PKR 19600" }
+    ],
+    "Flats": [
+        { name: "Cute Ballet Flats", img: "/1.Products-htmls/All Products/Women/Flats/01.png", price: "PKR 8400" },
+        { name: "Comfy Slip-On Flats", img: "/1.Products-htmls/All Products/Women/Flats/02.png", price: "PKR 9800" },
+        { name: "Boho Chic Flats", img: "/1.Products-htmls/All Products/Women/Flats/03.png", price: "PKR 11200" },
+        { name: "Sparkling Flat Sandals", img: "/1.Products-htmls/All Products/Women/Flats/04.png", price: "PKR 12600" },
+        { name: "Floral Print Flats", img: "/1.Products-htmls/All Products/Women/Flats/05.png", price: "PKR 14000" },
+        { name: "Trendy Espadrille Flats", img: "/1.Products-htmls/All Products/Women/Flats/06.png", price: "PKR 15400" }
+    ],
+    "Joggers": [
+        { name: "Cozy Jogging Pants", img: "/1.Products-htmls/All Products/Women/Joggers/01.png", price: "PKR 8400" },
+        { name: "Luxe Sweatpants", img: "/1.Products-htmls/All Products/Women/Joggers/02.png", price: "PKR 9800" },
+        { name: "Comfy Athleisure Joggers", img: "/1.Products-htmls/All Products/Women/Joggers/03.png", price: "PKR 11200" },
+        { name: "Casual Joggers", img: "/1.Products-htmls/All Products/Women/Joggers/04.png", price: "PKR 12600" },
+        { name: "Relaxed Fit Joggers", img: "/1.Products-htmls/All Products/Women/Joggers/05.png", price: "PKR 14000" },
+        { name: "Slim Fit Joggers", img: "/1.Products-htmls/All Products/Women/Joggers/06.png", price: "PKR 15400" }
+    ],
+    "Sandals": [
+        { name: "Elegant Flat", img: "/1.Products-htmls/All Products/Women/Sandals/01.png", price: "PKR 7000" },
+        { name: "Sparkly Toe-Post", img: "/1.Products-htmls/All Products/Women/Sandals/02.png", price: "PKR 8400" },
+        { name: "Chic Ankle Strap", img: "/1.Products-htmls/All Products/Women/Sandals/03.png", price: "PKR 9800" },
+        { name: "Bohemian", img: "/1.Products-htmls/All Products/Women/Sandals/04.png", price: "PKR 11200" },
+        { name: "Casual Slip-On", img: "/1.Products-htmls/All Products/Women/Sandals/05.png", price: "PKR 12600" },
+        { name: "Luxurious Strap", img: "/1.Products-htmls/All Products/Women/Sandals/06.png", price: "PKR 14000" }
+    ],
+    "Sneakers": [
+        { name: "Sporty Pink", img: "/1.Products-htmls/All Products/Women/Sneakers/01.png", price: "PKR 16800" },
+        { name: "Casual Slip-On", img: "/1.Products-htmls/All Products/Women/Sneakers/02.png", price: "PKR 18200" },
+        { name: "Stylish High-Tops", img: "/1.Products-htmls/All Products/Women/Sneakers/03.png", price: "PKR 19600" },
+        { name: "Luxe Leather", img: "/1.Products-htmls/All Products/Women/Sneakers/04.png", price: "PKR 21000" },
+        { name: "Floral Print", img: "/1.Products-htmls/All Products/Women/Sneakers/05.png", price: "PKR 22400" },
+        { name: "Sporty Running", img: "/1.Products-htmls/All Products/Women/Sneakers/06.png", price: "PKR 23800" }
+    ]
+};
+
+
+// Dynamically generate categories
+const categoryContainer = document.getElementById("categoryContainer");
+const productGrid = document.getElementById("products");
+
+function displayCategories() {
+    Object.keys(categories).forEach((category, index) => {
+        const div = document.createElement("div");
+        div.classList.add("category");
+        if (index === 0) div.classList.add("active");
+        div.textContent = category;
+        div.onclick = () => changeCategory(category, div);
+        categoryContainer.appendChild(div);
+    });
+}
+
+function changeCategory(category, selectedElement) {
+    document.querySelectorAll(".category").forEach(el => el.classList.remove("active"));
+    selectedElement.classList.add("active");
+    productGrid.innerHTML = "";
+
+    categories[category].forEach(product => {
+        const productDiv = document.createElement("div");
+        productDiv.classList.add("product");
+        productDiv.innerHTML = `
+            <img src="${product.img}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p class="price">${product.price}</p>
+            <button class="add-to-cart">Add to Cart</button>
+        `;
+        productGrid.appendChild(productDiv);
+    });
+}
+
+// Initialize the page with categories and set the default category
+displayCategories();
+const defaultCategory = document.querySelector(".category"); 
+if (defaultCategory) {
+    changeCategory(defaultCategory.textContent, defaultCategory);
+}
+
+function attachCartListeners() {
+    const buttons = document.querySelectorAll('.add-to-cart');
+
+    buttons.forEach(button => {
+        button.onclick = function () {
+            const productDiv = this.parentElement;
+            const productName = productDiv.querySelector("h3").textContent;
+            const productImage = productDiv.querySelector("img").src;
+            const productPrice = productDiv.querySelector(".price").textContent;
+            
+            // Create an object to store product details
+            const productDetails = {
+                name: productName,
+                image: productImage,
+                price: productPrice,
+                originalPrice: parseFloat(productPrice.replace("PKR", "").trim()) * 1.3,
+                discount: "30% OFF",
+                description: "This stylish and high-quality product pairs effortlessly with any type of shoes. Designed for versatility and comfort, it enhances your look for any occasion while ensuring durability and timeless appeal.",
+                sizes: ["S", "M", "L", "XL"], // Example sizes
+                colors: ["Red", "Blue", "Black"] // Example colors
+            };
+
+            // Store product details in localStorage
+            localStorage.setItem("selectedProduct", JSON.stringify(productDetails));
+
+            // Redirect to the product details page
+            window.location.href = "02.p_descryption.html";
+        };
+    });
+}
+
+function changeCategory(category, selectedElement) {
+    document.querySelectorAll(".category").forEach(el => el.classList.remove("active"));
+    selectedElement.classList.add("active");
+    productGrid.innerHTML = "";
+
+    categories[category].forEach(product => {
+        const productDiv = document.createElement("div");
+        productDiv.classList.add("product");
+        productDiv.innerHTML = `
+            <img src="${product.img}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p class="price">${product.price}</p>
+            <button class="add-to-cart">Add to Cart</button>
+        `;
+        productGrid.appendChild(productDiv);
+    });
+
+    // Attach event listeners to the "Add to Cart" buttons
+    attachCartListeners();
+}
+
+
+    
+    </script>
+    
+    </body>
+    </html>
+    

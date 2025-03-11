@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zen | Home</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="/Pictures/logo.jpg" type="img/svg">
+    <link rel="stylesheet" href="/1.Header-Footer/style.css">
+    <script src="/Chat-Bot/bot.js"></script>
+<style>
+
+/*  General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: #3886e6;
+    line-height: 1.6;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.hero-text {
+    padding: 40px 150px;
+}
+
+.hero-text h2 {
+    font-size: 1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+    margin-bottom: 15px;
+}
+
+.hero-text h3 {
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif    ;
+    color: #000;
+    font-size: 2.4rem;
+    font-weight: bolder;
+    margin-left: 30px;
+    margin-bottom: 15px;
+}
+
+.hero-text button {
+    margin-left: 40px;
+    padding: 10px 55px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-shop {
+    background-color: #ac4248;
+    color: white;
+}
+
+.btn-shop:hover {
+    background-color: #681e0b;
+}
+
+.btn-read {
+    background-color: #1622c9;
+    color: white;
+}
+
+.btn-read:hover {
+    background-color: #0d218f;
+}
+
+.hero-image img {
+    padding: 0 100px;
+    height: 450px;
+    filter: drop-shadow(10px 20px black);
+    filter: brightness(10px white);
+    filter: contrast(10px);
+}
+
+/* Features Section */
+.features {
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 52px;
+}
+
+.feature {
+    text-align: center;
+    padding: 20px;
+    transition: background 0.3s, transform 0.2s;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.feature:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+}
+
+.feature img {
+    width: 50px;
+    height: 50px;
+}
+
+.feature h4 {
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.feature p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.dots {
+    padding: 50px 50px;
+    bottom: 0.1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;     
+    margin: 20px 0 0;     
+    position: absolute;    
+    left: 50%;            
+    transform: translateX(-50%); 
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: #5190e2;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #0524ad;
+}
+
+/* Card Section */
+.wrapper .card_Container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 50px 50px;
+}
+
+.card_Container .card {
+    gap: 200px;
+    position: relative;
+    width: 330px;
+    height: 350px;
+    margin: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card .imbBx,
+.imbBx img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card::after {
+    content: attr(data-heading);
+    position: absolute;
+    top: 50px;
+    left: 30%;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #202020;
+    color: white;
+    border-radius: 5px;
+    margin-top: 10px;
+    position: absolute;
+    bottom: 15px;
+}
+
+.btn:hover {
+    background-color: #000;
+}
+
+.btn span {
+    margin-right: 8px;
+}
+
+.btn ion-icon {
+    font-size: 18px;
+}
+
+.col{
+    font-size: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.col img {
+    margin-bottom: -30px;
+    height: 100px;
+}
+
+.btt {
+  margin-top: 30px;
+  margin-left: 120px;
+}
+/* NEW SEASON */
+
+.newSeason {
+  display: flex;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif    ;
+}
+
+.nsItem {
+  flex: 1;
+  background: #0861ce;
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.nsImage {
+  height: 450px;
+  width: 450px;
+}
+
+.nsTitleSmall {
+  font-size: 3rem;
+}
+
+.nsButton {
+  color: white;
+  padding: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background: #338bf7;
+}
+
+/* Discount Banner  */
+.discount-banner {
+    margin-top: 150px;
+    position: relative;
+    width: 100%;
+    background: linear-gradient(90deg, #007bff, #00aaff); /* Sky Blue Gradient */
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 12px 0;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    z-index: 1000;
+}
+
+/* Scrolling Text */
+.discount-content {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: smoothScroll 12s linear infinite;
+}
+
+/* Scrolling Animation */
+@keyframes smoothScroll {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
+
+/* Shop Now Button */
+.cta-btn {
+    background: white;
+    color: #007bff;
+    padding: 6px 14px;
+    margin-left: 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 2px 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Button Hover Effect */
+.cta-btn:hover {
+    background: #f1f1f1;
+    color: #0056b3;
+}
+
+/* Icon Styling */
+.icon {
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+/* Stop Scrolling on Hover */
+.discount-banner:hover .discount-content {
+    animation-play-state: paused;
+}
+
+
+
+
+</style>
+</head>
+
+<body>
+
+ <!-- Header -->
+ <header class="transparent-header">
+    <div class="header-container">
+        <a href="01.home.html"> 
+        <div class="hlogo">
+        <img src="/Pictures/logo.jpg" type="img/svg" alt="Company Logo">
+        </div>
+        <p id="pp">Zen Store</p></a>  
+        <div class="nav-links">
+        <a href="/01.home.html">Home</a>
+        <div class="product-dropdown">
+            <a href="#">Product</a>
+            <ul class="product-menu">
+                <li><a href="/02.men.html">Men</a></li>
+                <li><a href="/02.women.html">Women</a></li>
+                <li><a href="/02.sports.html">Sports</a></li>
+            </ul>
+        </div>
+        <a href="/03.cart.html">Cart</a>
+        </div>
+        <div class="navsym">
+            <div class="search-bar">
+                <div class="boxs">
+                <input type="text" placeholder="Search here..." />
+                <a href="#"><i class="fas fa-search"></i></a></div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Discount Banner -->
+
+<div class="discount-banner">
+    <div class="discount-content">
+        <span class="icon">⚡</span> LIMITED-TIME OFFER! Get <strong>30% OFF</strong> on all products, Shop now and save big! 🛍️  
+        <a href="02.men.html" class="cta-btn">Shop Now →</a>
+    </div>
+</div>
+
+<!-- Hero Section -->
+
+<section class="hero">
+<div class="hero-text">
+    <p>WELCOME TO Zen Store</p>      
+    <h3> Step Into Style, <br> Comfort in Every Mile!</h3>
+    <div class="btt"><a href="/02.men.html"><button class="btn-shop">Shop Now</button></a></div>
+</div>
+<div class="hero-image">
+    <img src="/Pictures/Zextra/shoe.png" alt="Shoe" >
+</div></section>
+
+<!-- Features Section -->
+
+<section class="features">
+    <div class="feature">
+        <img src="/SVG/b.svg" class="icon" alt="High Quality">
+        <h4>High Quality</h4>
+        <p>Best shoes, top quality.</p>
+    </div>  
+    <div class="feature">
+        <img src="SVG/h.svg" class="icon" alt="Fast Delivery">
+        <h4>Fast Delivery</h4>
+        <p>Quick and reliable delivery.</p>
+    </div>
+    <div class="feature">
+        <img src="SVG/s.svg" class="icon" alt="Easy Payment">
+        <h4>Easy Payment</h4>
+        <p>Secure and simple payments.</p>
+    </div>
+    <div class="feature">
+        <img src="SVG/c.svg" class="icon" alt="24/7 Support">
+        <h4>24/7 Support</h4>
+        <p>Help anytime, anywhere needed.</p>
+    </div>
+    <div class="feature">
+        <img src="SVG/r.svg" class="icon" alt="Return Policy">
+        <h4>Return Back</h4>
+        <p>Easy, hassle-free returns.</p>
+    </div>
+    <div class="feature">
+        <img src="SVG/t.svg" class="icon" alt="Eco Friendly">
+        <h4>Eco Friendly</h4>
+        <p>Environmentally safe materials.</p>
+    </div>
+    <div class="feature">
+        <img src="SVG/g.svg" class="icon" alt="Gift Wrap">
+        <h4>Gift Wrap</h4>
+        <p>Beautiful custom packaging available.</p>
+    </div>
+</section>
+
+<!-- Collections     -->
+
+<h2 class="col">Explore <img src="/SVG/d.svg"></h2>
+<section class="wrapper">
+    <div class="card_Container">
+      <div class="card" data-heading="MEN SHOES">
+        <div class="imbBx">
+          <img src="/Pictures/Prods/collection-1.jpg" alt="men">
+        </div>
+        <a href="/02.men.html" class="btn btn-secondary">
+          <span>Explore All</span>
+          <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+        </a>
+      </div> 
+  
+      <div class="card" data-heading="WOMEN SHOES">
+        <div class="imbBx">
+          <img src="/Pictures/Prods/collection-2.jpg" alt="women">
+        </div>
+        <a href="/02.women.html" class="btn btn-secondary">
+          <span>Explore All</span>
+          <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+        </a>
+      </div> 
+  
+      <div class="card" data-heading="SPORTS SHOES">
+        <div class="imbBx">
+          <img src="/Pictures/Prods/collection-3.jpg" alt="sports">
+        </div>
+        <a href="/02.sports.html" class="btn btn-secondary">
+          <span>Explore All</span>
+          <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+        </a>
+      </div>
+    </div>
+</section>
+
+  <!-- New Season -->
+
+  <div class="newSeason">
+    <div class="nsItem">
+        <img src="/Pictures/Zextra/011.png" class="nsImage">
+    </div>
+    <div class="nsItem">
+        <h3 class="nsTitleSmall"> WINTER NEW ARRIVALS </h3>
+    </div>
+    <div class="nsItem">
+        <img src="/Pictures/Zextra/022.png" class="nsImage">
+    </div>
+</div>
+
+<!-- Footer-->
+
+    <footer>
+    <div class="footer-container">
+    <div class="footer-logo">
+    </div>
+    <div class="footer-info">
+    <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+        <li><a href="/01.home.html">Home</a></li>
+        <li><a href="/02.men.html">Products</a></li>
+        </ul>
+    </div>
+    <div class="footer-contact">
+        <ul>
+        <li>Email: zenstore@gmail.com</li>
+        <li>Phone: +92 3145359284</li>
+        </ul>
+    </div>
+    <div class="footer-social">
+        <h4>Follow Us</h4>
+        <ul>
+        <li><a href="https://www.facebook.com/BataHomePK/">Facebook</a></li>
+        <li><a href="https://www.instagram.com/batapk/?hl=en">Instagram</a></li>
+        </ul>
+    </div>
+        <div class="footer-copyright">
+        <h5>&copy; 2025 Zen Store. All Rights Reserved.</h5></div>
+    </footer>
+
+    <!-- JavaScript -->
+     
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script> <!-- Pre Loader -->
+    <script>
+        
+    document.addEventListener("DOMContentLoaded", () => {
+    const features = document.querySelectorAll(".feature");
+    const dotsContainer = document.createElement("div");
+    dotsContainer.classList.add("dots");
+    document.querySelector(".features").appendChild(dotsContainer);
+
+    const slidesToShow = 4; // Number of features visible at a time
+    const totalSlides = features.length;
+    let currentIndex = 0;
+
+    // Dots for navigation
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement("span");
+        dot.classList.add("dot");
+        dot.dataset.index = i;
+        dotsContainer.appendChild(dot);
+    }
+
+    const dots = document.querySelectorAll(".dot");
+
+    function showSlides(startIndex) {
+        features.forEach((feature, index) => {
+            const position = (index - startIndex + totalSlides) % totalSlides;
+            feature.style.display = position < slidesToShow ? "inline-block" : "none";
+        });
+
+        dots.forEach((dot, index) => {
+            dot.classList.toggle("active", index === startIndex);
+        });
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides; 
+        showSlides(currentIndex);
+    }
+
+    // Add click events for dots
+    dots.forEach(dot => {
+        dot.addEventListener("click", () => {
+            currentIndex = parseInt(dot.dataset.index);
+            showSlides(currentIndex);
+        });
+    });
+
+    // Auto-slide every 3 seconds
+    setInterval(nextSlide, 3000);
+
+    // Initialize carousel
+    showSlides(currentIndex);
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.querySelector(".search-bar input"); 
+    const searchButton = document.querySelector(".search-bar a");
+    
+    // Create an error message element
+    const errorMessage = document.createElement("span");
+    errorMessage.style.color = "red";
+    errorMessage.style.marginLeft = "15px";
+    errorMessage.style.display = "none"; // Initially hidden
+    searchInput.parentNode.appendChild(errorMessage); // Append to the search bar container
+    function handleSearch() {
+        const query = searchInput.value.trim().toLowerCase();
+        if (!query) return;
+
+        // Define correct category redirections for MEN
+        const menCategories = {
+            "formal shoes": "02.men.html?category=Formal Shoes",
+            "joggers ": "02.men.html?category=Joggers",
+            "boots": "02.men.html?category=Boots",
+            "sneakers ": "02.men.html?category=Sneakers",
+            "loafers": "02.men.html?category=Loafers",
+            "slippers": "02.men.html?category=Slippers"
+        };
+
+        // Define correct category redirections for WOMEN
+        const womenCategories = {
+            "flats": "02.women.html?category=Flats",
+            "fancy shoes": "02.women.html?category=Fancy Shoes",
+            "joggers women": "02.women.html?category=Joggers",
+            "sandals": "02.women.html?category=Sandals",
+            "sneakers women": "02.women.html?category=Sneakers"
+        };
+
+        // Define correct category redirections for SPORTS
+        const sportsCategories = {
+            "running shoes": "02.sports.html?category=Running Shoes",
+            "Sports Shoes": "02.sports.html?category=Running Shoes",
+            "sports shoes": "02.sports.html?category=Running Shoes",
+            "basketball shoes": "02.sports.html?category=Basketball Shoes"
+        };
+
+        // Check if the query exists in any category and redirect
+        if (menCategories[query]) {
+            window.location.href = menCategories[query];
+            return;
+        }
+        if (womenCategories[query]) {
+            window.location.href = womenCategories[query];
+            return;
+        }
+        if (sportsCategories[query]) {
+            window.location.href = sportsCategories[query];
+            return;
+        }
+
+        // If not found, display the error message
+        errorMessage.textContent = "This category is not in our inventory.";
+        errorMessage.style.display = "inline";
+    }
+
+    searchButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        handleSearch();
+    });
+
+    searchInput.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            handleSearch();
+        }
+    });
+
+    // Hide the error message when the user starts typing again
+    searchInput.addEventListener("input", function () {
+        errorMessage.style.display = "none";
+    });
+});
+
+    </script>
+</body>
+</html>
