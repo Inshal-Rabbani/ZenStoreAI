@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Zen | Signup</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="/Pictures/logo.jpg" type="img/svg">
+    <link rel="stylesheet" href="/1.Header-Footer/style.css">
+    <script src="/Chat-Bot/bot.js"></script>
+<style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #3886e6;
+        }
+
+        .bg {
+            margin-right: 120px;
+            display:flex;
+        }
+
+        .bg img {
+            height: 500px;
+            width: auto;
+        }
+        
+        .signup-container {
+            background: white;
+            height: 720px;
+            width: 380px;
+            padding: 50px;
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .signup-container h1 {
+            text-align: left;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .signup-container p {
+            margin-bottom: 25px;
+            font-size: 15px;
+            color: #6e6a6a;
+        }
+
+        .signup-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .signup-container input::placeholder {
+            color: #6e6a6a;
+        }
+
+        .signup-container button {
+            width: 100%;
+            padding: 12px;
+            font-size: 12px;
+            color: white;
+            background:  #25bdf9;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .signup-container button:hover {
+            background: #3cc1e9;
+            transform: scale(1.05);
+        }
+
+        .alternative-signup {
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .social-buttons button {
+            flex: 1;
+            margin: 0 5px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .google {
+            background: #db4437;
+        }
+
+        .linkedin {
+            background: #0077b5;
+        }
+
+        .fb {
+            background: #3b5998;
+        }
+
+        .footer {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #868686;
+        }
+
+        .footer a {
+            color: #ff512f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .social-buttons {
+            display: flex;flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+            margin-bottom: 15px;    
+        }
+
+        .social-btn {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            padding: 8px 20px;
+            font-size: 15px;
+            text-decoration: none;
+            color: #333;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: background 0.3s, transform 0.2s;
+            font-weight: bold;
+        }
+
+        .social-btn img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .social-btn.google {
+            border-color: #db4437;
+        }
+
+        .social-btn.facebook {
+            border-color: #3b5998;
+        }
+
+        .social-btn.linkedin {
+            border-color: #102b64;
+        }
+
+        .social-btn:hover {
+            transform: scale(1.05);
+            background: #f9f9f9;
+        }
+
+        .input-container {
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .input-container input {
+            width: 85%;
+            padding: 10px 10px 10px 35px;
+            font-size: 15px;
+            border: none;
+            border-bottom: 2px solid #000;
+            outline: none;
+            text-align: center;
+            background: transparent;
+        }
+
+        .input-container input:focus {
+            border-bottom: 2px solid #be7405;
+        }
+</style>
+
+</head>
+<body>
+
+ <!-- Header -->
+ <header class="transparent-header">
+    <div class="header-container">
+        <a href="01.home.html"> 
+        <div class="hlogo">
+        <img src="/Pictures/logo.jpg" type="img/svg" alt="Company Logo">
+        </div>
+        <p id="pp">Zen Store</p></a>  
+        <div class="nav-links">
+        <a href="/01.home.html">Home</a>
+        <div class="product-dropdown">
+            <a href="#">Product</a>
+            <ul class="product-menu">
+                <li><a href="/02.men.html">Men</a></li>
+                <li><a href="/02.women.html">Women</a></li>
+                <li><a href="/02.sports.html">Sports</a></li>
+            </ul>
+        </div>
+        <a href="/03.cart.html">Cart</a>
+        </div>
+        <div class="navsym">
+            <div class="search-bar">
+                <div class="boxs">
+                <input type="text" placeholder="Search here..." />
+                <a href="#"><i class="fas fa-search"></i></a></div>
+            </div>
+            <div class="profile-dropdown">
+                <a href="#"><i class="fas fa-user"></i></a>
+                <ul class="dropdown-menu">
+                <li><a href="/08.profile.html">My Profile</a></li>
+                <li><a href="/09.dashboard.html">Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div class="bg"><img src="/Pictures/Zextra/bg1.png" alt="background"></div>
+    
+    <div class="signup-container">
+        <h1>Create an Account</h1>
+        <p>Join us for a seamless experience</p>
+        <form id="signup-form">
+            <div class="input-container">
+                <input type="text" id="name" placeholder="Full Name" required>
+                <input type="email" id="email" placeholder="Email Address" required>
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p class="alternative-signup">or sign up with</p>
+        <div class="social-buttons">
+            <a href="https://accounts.google.com/o/oauth2/v2/auth" class="social-btn google">
+                <img src="/Pictures/Socials/glogo.png" alt="Google" />Google</a>
+            <a href="https://www.facebook.com/v12.0/dialog/oauth" class="social-btn facebook">
+                <img src="/Pictures/Socials/fblogo.png" alt="Facebook" />Facebook</a>
+            <a href="https://www.linkedin.com/oauth/v2/authorization" class="social-btn linkedin">
+                <img src="/Pictures/Socials/llogo.png" alt="LinkedIn" />LinkedIn</a>
+        </div>
+        <div class="footer">
+            Already have an account? <a href="/05.login.html">Sign In</a>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script> <!-- Pre Loader -->
+    <script>
+        // Clear input fields when the page loads
+    window.onload = function() {
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("password").value = "";
+    };
+
+    // Handle signup form submission
+    document.getElementById("signup-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+
+        if (email && password) {
+            // Store credentials in localStorage
+            localStorage.setItem("userEmail", email);
+            localStorage.setItem("userPassword", password);
+
+            alert("Signup successful! You can now log in.");
+            window.location.href = "05.login.html"; // Redirect to login page
+        } else {
+            alert("Please fill in all fields.");
+        }
+    });
+
+
+    document.getElementById("signup-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+
+        if (name && email && password) {
+            // Store user details in localStorage
+            localStorage.setItem("userName", name);
+            localStorage.setItem("userEmail", email);
+            localStorage.setItem("userPassword", password);
+
+            alert("Signup successful!");
+            window.location.href = "05.login.html"; // Redirect to profile page
+        } else {
+            alert("Please fill in all fields.");
+        }
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="/Pictures/logo.jpg" type="img/svg">
+    <link rel="stylesheet" href="/1.Header-Footer/style.css">
+    <script src="/Chat-Bot/bot.js"></script>
+    <title>Zen | Product Details</title>
+<style>
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #46ace3, #003366);
+            color: #003366;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            width: 90%;
+            margin: 20px auto;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            overflow: hidden;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .image-section {
+            flex: 1;
+            background: linear-gradient(120deg, #e6f2ff, #cce6ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .image-section img {
+            width: 600px;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .details-section {
+            flex: 2;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .discount-tag {
+            background-color: #0e61b4;
+            color: #ffffff;
+            padding: 8px 15px;
+            font-size: 14px;
+            border-radius: 5px;
+            width: fit-content;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .details-section h1 {
+            font-size: 30px;
+            color: #003366;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .details-section .price {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #ea3a2a;
+        }
+
+        .details-section .price span {
+            color: #808080;
+            text-decoration: line-through;
+            font-size: 18px;
+            margin-left: 10px;
+        }
+
+        /* Removed color options section */
+        #size {
+            margin: 15px 0;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #cce6ff;
+            border-radius: 5px;
+        }
+
+        .buy-button {
+            background-color: #2abbf4;
+            color: #ffffff;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(255, 111, 97, 0.4);
+        }
+
+        .buy-button:hover {
+            transform: scale(1.05);
+            background-color: #127eea;
+        }
+
+        .product-description {
+            margin-top: 20px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+</style>
+</head>
+
+<body>
+    
+ <!-- Header -->
+ <header class="transparent-header">
+    <div class="header-container">
+        <a href="01.home.html"> 
+        <div class="hlogo">
+        <img src="/Pictures/logo.jpg" type="img/svg" alt="Company Logo">
+        </div>
+        <p id="pp">Zen Store</p></a>  
+        <div class="nav-links">
+        <a href="/01.home.html">Home</a>
+        <div class="product-dropdown">
+            <a href="#">Product</a>
+            <ul class="product-menu">
+                <li><a href="/02.men.html">Men</a></li>
+                <li><a href="/02.women.html">Women</a></li>
+                <li><a href="/02.sports.html">Sports</a></li>
+            </ul>
+        </div>
+        <a href="/03.cart.html">Cart</a>
+        </div>
+        <div class="navsym">
+            
+            <div class="profile-dropdown">
+                <a href="/08.profile.html"><i class="fas fa-user"></i></a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Descryption Section -->
+<div class="container">
+    <!-- Image Section -->
+    <div class="image-section">
+        <img src="" alt="Product Image">
+    </div>
+    <!-- Details Section -->
+    <div class="details-section">
+        <div class="discount-tag">30% OFF</div>
+        <h1></h1>
+        <!-- Removed Color Options -->
+        <label for="size">Select Size:</label>
+        <select id="size" name="size">
+        <!-- Size options dynamically added -->
+        </select>
+        <div class="price"><span></span></div>
+        <div class="product-description"></div>
+        <button class="buy-button">Add to Cart</button>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const productData = JSON.parse(localStorage.getItem('selectedProduct'));
+        
+        if (productData) {
+            document.querySelector('.discount-tag').textContent = productData.discount;
+            document.querySelector('h1').textContent = productData.name;
+            document.querySelector('.price').innerHTML = `PKR ${parseFloat(productData.price.replace("PKR", "").trim())} <span>PKR ${productData.originalPrice.toFixed(0)}</span>`;
+            document.querySelector('.product-description').textContent = productData.description;
+            document.querySelector('.image-section img').src = productData.image;
+    
+            // Populate the size options
+            const sizeSelect = document.querySelector('#size');
+            productData.sizes.forEach(size => {
+                const option = document.createElement('option');
+                option.value = size;
+                option.textContent = size;
+                sizeSelect.appendChild(option);
+            });
+        }
+    
+        // Handle Add to Cart button
+        document.querySelector('.buy-button').addEventListener('click', () => {
+            if (!productData) return;
+    
+            const selectedSize = document.querySelector('#size').value;
+            
+            if (!selectedSize) {
+                alert('Please select a size.');
+                return;
+            }
+    
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+            // Check if the product already exists in the cart
+            const existingProduct = cart.find(item => 
+                item.name === productData.name &&
+                item.size === selectedSize
+            );
+    
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                productData.quantity = 1;
+                productData.size = selectedSize;
+                cart.push(productData);
+            }
+    
+            // Save updated cart
+            localStorage.setItem('cart', JSON.stringify(cart));
+    
+            // Show popup notification
+            showCartNotification(productData.name);
+        });
+    
+        function showCartNotification(productName) {
+            let notification = document.createElement('div');
+            notification.textContent = `${productName} added to cart!`;
+            
+            let viewCartLink = document.createElement('a');
+            viewCartLink.href = '/03.cart.html';
+            viewCartLink.textContent = "View Cart";
+            viewCartLink.style.color = "yellow";
+            viewCartLink.style.marginLeft = "10px";
+    
+            notification.appendChild(viewCartLink);
+            notification.style.position = "fixed";
+            notification.style.bottom = "80px";
+            notification.style.right = "20px";
+            notification.style.background = "#4CAF50";
+            notification.style.color = "white";
+            notification.style.padding = "15px";
+            notification.style.borderRadius = "5px";
+            notification.style.fontSize = "16px";
+            notification.style.zIndex = "1000";
+            document.body.appendChild(notification);
+    
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+    // ✅ Function to get the 'shoe_id' from the URL parameters
+    function getShoeIdFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get("shoe_id"); // Extract 'shoe_id' parameter
+    }
+
+    // ✅ Function to fetch shoe details from Flask backend
+    function fetchShoeDetails(shoeId) {
+        fetch(`http://127.0.0.1:5000/get_shoe_details/${shoeId}`) // Adjust Flask URL if needed
+            .then(response => response.json())
+            .then(data => {
+                if (data.shoe) {
+                    updateProductPage(data.shoe); // Pass shoe details to update function
+                } else {
+                    console.error("❌ Shoe not found");
+                }
+            })
+            .catch(error => console.error("❌ Error fetching shoe details:", error));
+    }
+
+    // ✅ Function to update product page dynamically
+    function updateProductPage(shoe) {
+        document.querySelector(".image-section img").src = shoe.image_path;
+        document.querySelector(".details-section h1").textContent = shoe.name;
+        document.querySelector(".product-description").textContent = shoe.description;
+        document.querySelector(".price span").textContent = `PKR ${shoe.price}`;
+    }
+
+    // ✅ Main Execution
+    const shoeId = getShoeIdFromURL();
+    if (shoeId) {
+        fetchShoeDetails(shoeId);
+    } else {
+        console.error("❌ No shoe_id found in URL");
+    }
+});
+
+</script>
+
+</body>
+</html>

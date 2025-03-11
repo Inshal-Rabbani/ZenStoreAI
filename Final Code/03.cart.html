@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Zen | Cart</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="/SVG/01.favicon.svg" type="img/svg">
+    <link rel="stylesheet" href="/1.Header-Footer/style.css">
+    <script src="/Chat-Bot/bot.js"></script>
+
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    background: #3886e6;
+}
+
+.container {
+    width: 1200px;  
+    margin: 130px auto 0;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+   
+h1, h2 {
+    text-align: center;
+}
+
+.cart {
+    margin-top: 20px;
+}
+
+.cart-header, .cart-footer, .cart-items > div {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-header, .cart-footer {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.cart-items > div {
+    align-items: center;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #5558f8;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(8, 36, 158);
+}
+
+.remove-button {
+    background-color: red;
+}
+
+.remove-button:hover {
+    background-color: darkred;
+}
+
+.proceed-to-checkout {
+    margin-top: 10px;
+    grid-column: span 5;
+    text-align: center;
+}
+
+</style>
+</head>
+<body>
+
+ <!-- Header -->
+ <header class="transparent-header">
+    <div class="header-container">
+        <a href="01.home.html"> 
+        <div class="hlogo">
+        <img src="/SVG/01.favicon.svg" type="img/svg" alt="Company Logo">
+        </div>
+        <p id="pp">Zen Store</p></a>  
+        <div class="nav-links">
+        <a href="/01.home.html">Home</a>
+        <div class="product-dropdown">
+            <a href="#">Product</a>
+            <ul class="product-menu">
+                <li><a href="/02.men.html">Men</a></li>
+                <li><a href="/02.women.html">Women</a></li>
+                <li><a href="/02.sports.html">Sports</a></li>
+            </ul>
+        </div>
+        <a href="/03.cart.html">Cart</a>
+        </div>
+        <div class="navsym">
+           
+            <div class="profile-dropdown">
+                <a href="/08.profile.html"><i class="fas fa-user"></i></a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Container -->
+<div class="container">
+    <h1>Shopping Cart</h1>
+    <div class="cart">
+        <div class="cart-header">
+            <span>Item</span>
+            <span>Price</span>
+            <span>Quantity</span>
+            <span>Total</span>
+            <span>Action</span>
+        </div>
+        <div class="cart-items">
+        <!-- Items will be dynamically added here -->
+        </div>
+        <div class="cart-footer">
+            <span>Total Price:</span>
+            <span id="total-price">PKR 0.00</span>
+        </div>
+        <a href="07.checkout.html"><button class="proceed-to-checkout" id="proceed-to-checkout">Proceed to Checkout</button></a>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartContainer = document.querySelector('.cart-items');
+        const totalPriceElement = document.getElementById('total-price');
+    
+        function updateCartUI() {
+            cartContainer.innerHTML = '';
+            let totalPrice = 0;
+    
+            cart.forEach((product, index) => {
+                // Ensure price is valid
+                let price = parseFloat(product.price.replace("PKR", "").trim()) || 0;
+                let productTotal = price * product.quantity;
+                totalPrice += productTotal;
+    
+                // Safely display the product information (only size and quantity, no color)
+                const productDiv = document.createElement('div');
+                productDiv.classList.add('cart-item');
+                productDiv.innerHTML = `
+                    <span>
+                        <img src="${product.image}" alt="${product.name}" width="50"> 
+                        ${product.name} (${product.size || 'N/A'})
+                    </span>
+                    <span>PKR ${price}</span>
+                    <span>
+                        <button class="decrease" data-index="${index}">-</button>
+                        <span class="quantity">${product.quantity}</span>
+                        <button class="increase" data-index="${index}">+</button>
+                    </span>
+                    <span class="total-price-item">PKR ${productTotal.toFixed(0)}</span>
+                    <button class="remove-button" data-index="${index}">Remove</button>
+                `;
+                cartContainer.appendChild(productDiv);
+            });
+    
+            totalPriceElement.textContent = `PKR ${totalPrice.toFixed(0)}`;
+            localStorage.setItem('totalPrice', totalPrice.toFixed(0));  // Store the total price in localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            attachEventListeners(); 
+        }
+    
+        function attachEventListeners() {
+            document.querySelectorAll('.increase').forEach(button => {
+                button.addEventListener('click', function() {
+                    const index = this.getAttribute('data-index');
+                    cart[index].quantity += 1;
+                    updateCartUI();
+                });
+            });
+    
+            document.querySelectorAll('.decrease').forEach(button => {
+                button.addEventListener('click', function() {
+                    const index = this.getAttribute('data-index');
+                    if (cart[index].quantity > 1) {
+                        cart[index].quantity -= 1;
+                    } else {
+                        cart.splice(index, 1);
+                    }
+                    updateCartUI();
+                });
+            });
+    
+            document.querySelectorAll('.remove-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const index = this.getAttribute('data-index');
+                    cart.splice(index, 1);
+                    updateCartUI();
+                });
+            });
+        }
+    
+        updateCartUI();
+    });
+</script>
+
+    
+    
+    
+
+</body>
+</html>
+
