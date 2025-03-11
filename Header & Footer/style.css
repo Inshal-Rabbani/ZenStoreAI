@@ -1,0 +1,385 @@
+
+/*---------------  General Styles ----------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #3886e6;
+    overflow-x: hidden;
+}
+
+/*--------------- Header Section -----------------*/
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 400;
+}
+
+header nav a:hover {
+    color: #fd9800;
+}
+
+.transparent-header {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    background: #ffffff;
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.transparent-header * {
+    pointer-events: auto;
+}
+
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.hlogo img {
+    border-radius: 20px;
+    width: 50px;
+    height: auto;
+}
+
+.nav-links {
+    flex: 1;
+    display: flex;
+    gap: 50px;
+    margin-left: 750px;
+}
+
+.hlogo {
+    margin-left: 20px;
+    flex: 1;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+}
+
+#pp {
+    color: #3d3c3c;
+    font-size: 20px;
+    font-weight: bolder;
+    position: absolute;
+    left: 6%;
+    top: 50%;
+    transform: translate(-10%, -50%);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #3d3b3b;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    transform: scale(1.005);
+    color: #000000d8;
+}
+
+.navsym i {
+    color: #000;
+    text-decoration: none;
+    margin-right: 30px;
+}
+
+.navsym {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navsym a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.search-bar {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxs {
+    height: 40px;
+    display: flex;
+    cursor: pointer;
+    padding: 10px 5px;
+    border-radius: 30px;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.boxs:hover input {
+    width: 200px;
+}
+
+.boxs input {
+    margin-left: 20px;
+    width: 0;
+    outline: none;
+    border: none;
+    transition: 0.8s;
+    background: transparent;
+}
+
+.boxs a .fas {
+    margin-left: 5px;
+    color: #000;
+    font-size: 15px;
+}
+
+.profile-dropdown {
+    height: 40px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 10px 5px;
+    border-radius: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.product-dropdown a {
+    font-size: 15px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.product-dropdown:hover {
+    transform: scale(1.005);
+}
+
+.product-menu {
+    display: none;
+    position: absolute;
+    top: 18px;
+    right: -30px;
+    background-color: white;
+    border-radius: 8px;
+    list-style: none;
+    z-index: 1000;
+    width: 120px;
+    text-align: center;
+}
+
+.product-menu li {
+    padding: 8px;
+}
+
+.product-menu li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.product-menu li:hover {
+    background-color: #f0f0f0e7;
+}
+
+.product-dropdown:hover .product-menu {
+    display: block;
+}
+
+.profile-dropdown a .fas {
+    margin-left: 25px;
+    color: #000;
+    font-size: 15px;
+}
+
+.profile-dropdown a {
+    font-size: 15px; 
+    color: #333; 
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.profile-dropdown a:hover {
+    background-color: #f0f0f0e7;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background-color: white;
+    border-radius: 8px;
+    list-style: none;
+    z-index: 1000;
+    width: 120px; 
+    text-align: center;
+}
+
+.dropdown-menu li {
+    padding: 10px;
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu li:hover {
+    background-color: #f0f0f0e7;
+}
+
+.profile-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.upload-btn {
+    height: 40px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.upload-btn:hover {
+    background: white;
+}
+
+.upload-btn i {
+    margin: 15px 15px;
+    cursor: pointer;
+}
+
+/*------------------ Footer Section ---------------*/
+footer {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; 
+    min-height: 200px; 
+}
+
+.footer-container {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px;
+}
+
+.footer-logo {
+    flex: 1;
+    text-align: left;
+}
+
+.footer-logo img {
+    width: 150px;
+    height: auto;
+}
+
+
+.footer-info {
+    flex: 3;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.footer-links {
+    text-decoration: none;
+    color: #000;
+}
+
+.footer-contact,
+.footer-social,
+.footer-time {
+    width: 25%;
+}
+
+.footer-links ul,
+.footer-contact ul,
+.footer-social ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-contact a,
+.footer-social a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    display: block;
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover,
+.footer-social a:hover {
+    color: #0f058f;
+}
+
+.footer-copyright {
+    position: absolute;
+    margin-top: 30px;
+    bottom: 0;
+    width: 100%; 
+    padding: 10px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: #666;
+}
+
+/*------------ Scroll Bar ------------*/
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+background-color: #d1e5ff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(#3538eb,#3385ff);
+}
